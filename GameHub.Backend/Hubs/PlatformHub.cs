@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 
 namespace GameHub.Backend.Hubs
 {
+    [Authorize]
     public class PlatformHub : Hub
     {
         public async Task GetAllUsers()
