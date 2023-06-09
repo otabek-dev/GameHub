@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Login from "./screens/home/Login";
+import Login from "./screens/login/Login";
 import Home from "./screens/home/Home";
 const Router = () => {
   const isLoggedIn = !!localStorage.getItem("token");

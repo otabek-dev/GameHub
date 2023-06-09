@@ -13,29 +13,20 @@ namespace GameHub.Backend.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         [HttpPost]
         public IResult Login([FromBody]User user)
         {
-            if (user is null || user.UserName == string.Empty) return Results.Accepted();
+            if (user is null || user.UserName == string.Empty) return Results.BadRequest();
 
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, user.UserName)
-            };
+            var claims = new[] { new Claim(ClaimTypes.Name, user.UserName) };
 
             var token = new JwtSecurityToken(
-                issuer: "http://localhost:5216",
-                audience: "http://localhost:5216",
+                issuer: JwtData.ISSUER,
+                audience: JwtData.AUDIENCE,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345")), 
+                    JwtData.GetSymmetricSecurityKey(), 
                     SecurityAlgorithms.HmacSha256));
 
             var encodedToken = new JwtSecurityTokenHandler().WriteToken(token);
