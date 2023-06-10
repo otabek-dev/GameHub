@@ -1,4 +1,23 @@
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial Black", sans-serif;
+    font-weight: 900;
+    background-color: #000;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 40px;
+    border: none;
+    padding: 10px 20px;
+    transition: 100ms ease-in-out;
+    background-color: coral;
+    width: 120px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: blueviolet;
 }

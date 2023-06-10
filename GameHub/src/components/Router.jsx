@@ -13,14 +13,15 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
-          element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
-        />
-        <Route
           path="/login"
           element={isLoggedIn ? <Navigate to="/" /> : <Login />}
         />
 
+        <Route
+          path="/"
+          element={isLoggedIn ? <Home accessToken={localStorage.getItem('token') } userName={localStorage.getItem('userName')} /> : <Navigate to="/login" />}
+        />
+        
         <Route path="*" element={<div>Not found</div>} />
       </Routes>
     </BrowserRouter>

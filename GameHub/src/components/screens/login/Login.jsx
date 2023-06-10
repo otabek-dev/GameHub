@@ -1,12 +1,11 @@
-import axios from "axios";
 import { useState } from "react";
-import styles from "./login.module.css";
+import axios from "axios";
+import styles from "./Login.module.css";
 
 const Login = () => {
-
   const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
-  
+
   const handleLogin = async () => {
     try {
       if (userName.length < 1) {
@@ -16,16 +15,23 @@ const Login = () => {
       const response = await axios.post("http://localhost:5216/api/Login", {
         userName,
       });
-      localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("userName", response.data.userName);
 
-      window.location.href = "/";
-
+      if (response.status !== 200) {
+        setError("Failed to login");
+        return;
+      }
+      else {
+        localStorage.setItem("token", response.data.access_token);
+        localStorage.setItem("userName", response.data.userName);
+        window.location.href = "/";
+      }
+            
     } catch (err) {
       setError("Failed to login");
-      console.log(error);
       console.log(err);
     }
+
+   
   };
 
   return (
@@ -46,7 +52,6 @@ const Login = () => {
           Login
         </button>
       </div>
-      
     </div>
   );
 };
