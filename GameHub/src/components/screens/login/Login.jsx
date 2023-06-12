@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./Login.module.css";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
+  const nav = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -23,7 +25,7 @@ const Login = () => {
       else {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("userName", response.data.userName);
-        window.location.href = "/";
+
       }
             
     } catch (err) {
@@ -31,6 +33,7 @@ const Login = () => {
       console.log(err);
     }
 
+    window.location.href = "/";
    
   };
 

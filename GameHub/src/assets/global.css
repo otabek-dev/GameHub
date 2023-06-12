@@ -14,7 +14,7 @@ button {
     padding: 10px 20px;
     transition: 100ms ease-in-out;
     background-color: coral;
-    width: 120px;
+    max-width: 110px;
 }
 
 button:hover {

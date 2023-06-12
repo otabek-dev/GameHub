@@ -1,0 +1,32 @@
+.game {
+    display: flex;
+    padding: 15px;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #fff;
+    opacity: unset;
+}
+
+.game__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 18px;
+}
+.game__info {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.game__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 45px;
+}

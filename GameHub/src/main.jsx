@@ -9,15 +9,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router />
 
-      {/*<div className={styles.frameBlock}></div>*/}
-      {/*<iframe*/}
-      {/*    width="100vh"*/}
-      {/*    height="100vh"*/}
-      {/*    src="https://www.youtube.com/embed/yNcH2PuiHw8?controls=0&autoplay=1&mute=1"*/}
-      {/*    title="background"*/}
-      {/*    frameBorder="0"*/}
-      {/*    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-      {/*    allowFullScreen>*/}
-      {/*</iframe>*/}
+      <div className={styles.frameBlock}></div>
+      <iframe
+          width="100vh"
+          height="100vh"
+          src="https://www.youtube.com/embed/yNcH2PuiHw8?controls=0&autoplay=1&mute=1"
+          title="background"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen>
+      </iframe>
   </React.StrictMode>
 );

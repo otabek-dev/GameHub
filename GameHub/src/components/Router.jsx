@@ -1,8 +1,7 @@
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Navigate,
+  Route, Navigate
 } from "react-router-dom";
 import Login from "./screens/login/Login";
 import Home from "./screens/home/Home";
@@ -21,7 +20,18 @@ const Router = () => {
           path="/"
           element={isLoggedIn ? <Home accessToken={localStorage.getItem('token') } userName={localStorage.getItem('userName')} /> : <Navigate to="/login" />}
         />
-        
+        {/*<Route*/}
+        {/*    path="/login"*/}
+        {/*    element={<Login />}*/}
+        {/*/>*/}
+
+        {/*<Route*/}
+        {/*    path="/"*/}
+        {/*    element={<Home accessToken={localStorage.getItem('token') } userName={localStorage.getItem('userName')}/>}*/}
+        {/*/>*/}
+
+
+
         <Route path="*" element={<div>Not found</div>} />
       </Routes>
     </BrowserRouter>
